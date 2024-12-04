@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Birthday Wishes</title>
+    <link rel="stylesheet" href="./CSS/style.css"> <!-- Link your CSS file here if you have one -->
+    <script>
+        function playVideoAndRedirect() {
+            const video = document.getElementById('birthdayVideo');
+            
+            // Play the video when clicked (removes the muted attribute for audio)
+            video.play();
+
+            // Redirect after video ends (use the 'ended' event)
+            video.onended = function() {
+                window.location.href = 'home.html'; // Replace with your second page URL
+            };
+        }
+
+        // Add the event listener on page load
+        window.onload = function() {
+            const container = document.querySelector('.container');
+            container.addEventListener('click', playVideoAndRedirect);
+        };
+    </script>
+</head>
+<body class="index-bg">
+    <div class="container" style="height: 100vh; cursor: pointer;">
+        <!-- Background video -->
+        <video id="birthdayVideo" style="object-fit: cover; width: 100%; height: 100%;">
+            <source src="./SiriPhotos/Lamborgini (1) (1).mp4" type="video/mp4"> <!-- Replace with your video file -->
+            Your browser does not support the video element.
+        </video>
+    </div>
+</body>
+</html>
